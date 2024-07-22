@@ -80,7 +80,7 @@ Solucao VizinhoMaisProximo(Instancia& inst, int k)
     Solucao sol;
 
     //criando e inicializando minha lista de candidatos
-    unordered_set<int> C = obterListaCandidatosAleatoria(inst.n);
+    unordered_set<int> C = obterListaCandidatos(inst.n);
 
     //adicionando a cidade origem do Caixeiro
     sol.push_back(*(C.begin()));
@@ -104,7 +104,7 @@ Solucao InsercaoMaisBarata(Instancia& inst, int k)
     int idInserir;
 
     //criando e inicializando minha lista de candidatos
-    unordered_set<int> C = obterListaCandidatosAleatoria(inst.n);
+    unordered_set<int> C = obterListaCandidatos(inst.n);
 
     //adicionando a cidade origem do Caixeiro
     sol.push_back(*(C.begin()));
