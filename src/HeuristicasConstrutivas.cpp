@@ -1,18 +1,24 @@
 #include "HeuristicasConstrutivas.h"
 
-unordered_set<int> obterListaCandidatosAleatoria(int n){
+unordered_set<int> obterListaCandidatosAleatoria(int n)
+{
     unordered_set<int> C;
+    random_device rd;
+    mt19937 mt(rd());
+
     while(C.size() < n){
-        C.insert(rand() % n);
+        C.insert(mt() % n);
     }
+
     return C;
 }
 
-int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo)
+int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo, int k)
 {
     int idMelhor;
     float custoMelhor = MAXFLOAT;
     unordered_set<int>::iterator it;
+
     for(it = C.begin(); it != C.end(); it++)
     {
         if( inst.distancia[idUltimo][*(it)] < custoMelhor)
@@ -25,15 +31,12 @@ int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo)
     return idMelhor;
 }
 
-vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInserido)
+vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInserido, int k)
 {
-    int id1;
-    int id2;
-    float custoMelhor = MAXFLOAT;
-    float custoAtual;
-    vector<int>::iterator it;
-    vector<int>::iterator posMelhor = sol.begin();
-    it = sol.begin();
+    int id1, id2;
+    float custoMelhor = MAXFLOAT, custoAtual;
+    vector<int>::iterator it = sol.begin(), posMelhor = sol.begin();
+
     while(it != sol.end())
     {
         id1 = *(it);
@@ -49,7 +52,7 @@ vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInseri
     return posMelhor;
 }
 
-Solucao VizinhoMaisProximo(Instancia& inst)
+Solucao VizinhoMaisProximo(Instancia& inst, int k)
 {
     Solucao sol;
 
@@ -63,7 +66,7 @@ Solucao VizinhoMaisProximo(Instancia& inst)
     //seleciona e insere o vizinho mais próximo até que a lista de candidatos termine
     while(! C.empty())
     {
-        int id = melhorCandidato(inst, C, sol.at(sol.size()-1));
+        int id = melhorCandidato(inst, C, sol.at(sol.size() - 1), k);
         sol.push_back(id);
         C.erase(id);
     }
@@ -71,7 +74,7 @@ Solucao VizinhoMaisProximo(Instancia& inst)
     return sol;
 }
 
-Solucao InsercaoMaisBarata(Instancia& inst)
+Solucao InsercaoMaisBarata(Instancia& inst, int k)
 {
     Solucao sol;
     vector<int>::iterator itMelhorInsercao;
@@ -79,11 +82,13 @@ Solucao InsercaoMaisBarata(Instancia& inst)
 
     //criando e inicializando minha lista de candidatos
     unordered_set<int> C = obterListaCandidatosAleatoria(inst.n);
+
     //adicionando a cidade origem do Caixeiro
     sol.push_back(*(C.begin()));
     C.erase(C.begin());
+
     //criando rota inicial utilizando o método de inserção mais barata
-    int id = melhorCandidato(inst, C, sol.at(sol.size()-1));
+    int id = melhorCandidato(inst, C, sol.at(sol.size() - 1), k);
     sol.push_back(id);
     C.erase(id);
     
@@ -91,7 +96,7 @@ Solucao InsercaoMaisBarata(Instancia& inst)
     while(!C.empty())
     {
         idInserir = *(C.begin());
-        itMelhorInsercao = melhorInsercao(inst, sol, idInserir);
+        itMelhorInsercao = melhorInsercao(inst, sol, idInserir, k);
         sol.insert(itMelhorInsercao, idInserir);
         C.erase(idInserir);
     }
@@ -102,16 +107,15 @@ Solucao InsercaoMaisBarata(Instancia& inst)
 Solucao Randomica(Instancia& inst)
 {
     Solucao sol;
+    random_device rd;
+    mt19937 mt(rd());
 
     for(int i = 0; i < inst.n; i++)
     {
         sol.push_back(i);
     }
-    
-    random_device rd;
-    mt19937 g(rd());
- 
-    shuffle(sol.begin(), sol.end(),g);
+
+    shuffle(sol.begin(), sol.end(), mt);
 
     return sol;
 

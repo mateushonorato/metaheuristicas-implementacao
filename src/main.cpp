@@ -35,14 +35,14 @@ int main(int argc, char* argv[])
                 {                 
                     case 1:
                         cout<< "  ---- VMP --- " <<endl;
-                        sol = VizinhoMaisProximo(inst);
+                        sol = VizinhoMaisProximo(inst, 0);
                         impSol(sol);
                         fo = avalia(inst, sol);
                         printf("\nFO: %.2f\n", fo);
                     break;
                     case 2:
                         cout << " ---- IMB ---- " <<endl;
-                        sol = InsercaoMaisBarata(inst);
+                        sol = InsercaoMaisBarata(inst, 0);
                         impSol(sol);
                         fo = avalia(inst, sol);
                         printf("\nFO: %.2f\n", fo);

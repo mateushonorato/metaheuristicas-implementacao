@@ -14,8 +14,8 @@
 
 using namespace std;
 
-Solucao VizinhoMaisProximo(Instancia& inst);
-Solucao InsercaoMaisBarata(Instancia& inst);
+Solucao VizinhoMaisProximo(Instancia& inst, int k);
+Solucao InsercaoMaisBarata(Instancia& inst, int k);
 Solucao Randomica(Instancia& inst);
 
 #endif /*HEURISTICASCONSTRUTIVAS_H*/
