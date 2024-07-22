@@ -69,18 +69,18 @@ int main(int argc, char* argv[])
                         printf("\nFO: %.2f\n", fo);
                     break;
                     case 4:
-                        cout<< "  ---- VMP - Parcialmente Guloso --- " <<endl;
+                        /*cout<< "  ---- VMP - Parcialmente Guloso --- " <<endl;
                         sol = VizinhoMaisProximoParcialmenteGuloso(inst);
                         impSol(sol);
                         fo = avalia(inst, sol);
-                        printf("\nFO: %.2f\n", fo);
+                        printf("\nFO: %.2f\n", fo);*/
                     break;
                     case 5:
-                        cout << " ---- IMB - Parcialmente Guloso ---- " <<endl;
+                        /*cout << " ---- IMB - Parcialmente Guloso ---- " <<endl;
                         sol = InsercaoMaisBarataParcialmenteGuloso(inst);
                         impSol(sol);
                         fo = avalia(inst, sol);
-                        printf("\nFO: %.2f\n", fo);
+                        printf("\nFO: %.2f\n", fo);*/
                     break;                
                     default:
                         cout << "Opção inválida" <<endl;

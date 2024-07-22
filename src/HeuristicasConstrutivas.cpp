@@ -122,3 +122,18 @@ Solucao InsercaoMaisBarata(Instancia& inst)
 
     return sol;
 }
+
+Solucao Randomica(Instancia& inst)
+{
+    Solucao sol;
+
+    for(int i = 0; i < inst.n; i++)
+    {
+        sol.push_back(i);
+    }
+    
+    random_shuffle(sol.begin(), sol.end());
+
+    return sol;
+
+}
