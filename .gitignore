@@ -1,7 +1,3 @@
-.temp/Avaliador.o
-.temp/HeuristicasConstrutivas.o
-.temp/Instancia.o
-.temp/main.o
-.temp/Menu.o
-.temp/Solucao.o
-bin/tsp
+.temp/*
+bin/*
+.idea/*
