@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
     Solucao sol;
     float fo; 
     string nomeArq = argv[1];
+    leInstancia(inst, nomeArq);
 
     int op, hc, bl;
     do
@@ -28,22 +29,7 @@ int main(int argc, char* argv[])
         switch (op)
         {
             case 1:
-            { 
-                leInstancia(inst, nomeArq);
-                printf("\n\n Arquivo carregado com sucesso!\n\n");
-                /*
-                sol.push_back(0);
-                sol.push_back(2);
-                sol.push_back(1);
-                sol.push_back(3);
-
-                float fo = avalia(inst, sol);
-
-                cout<< "Valor da FO: " << fo << endl;
-                */
-            }    
-            break;
-            case 2: 
+            {
                 hc = menuHeuristicaConstrutiva();
                 switch (hc)
                 {                 
@@ -86,8 +72,10 @@ int main(int argc, char* argv[])
                         cout << "Opção inválida" <<endl;
                     break;
                 }
-            break;
-            case 3:
+                break;
+            }
+            case 2:
+            {
                 bl = menuBuscaLocal();
                 switch (bl)
                 {
@@ -99,7 +87,8 @@ int main(int argc, char* argv[])
                         cout<< "Opção Inválida" << endl;
                     break;
                 }    
-            break;
+                break;
+            }
             case 0:
                 cout << "Até a próxima!!!" << endl;
             break;

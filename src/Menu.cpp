@@ -13,9 +13,8 @@ int menuPrincipal()
     printf("=== Problema do Caixeiro Viajante ===\n");
     printf("=====================================\n");
     printf("Selecione uma opção: \n");
-    printf("1 - Carregar instância. \n");
-    printf("2 - Heurísticas Construtivas.\n");
-    printf("3 - Buscas Locais.\n");
+    printf("1 - Heurísticas Construtivas.\n");
+    printf("2 - Buscas Locais.\n");
     printf("0 - Sair\n");
     do
     {   
