@@ -1,10 +1,11 @@
 #include "HeuristicasConstrutivas.h"
 
+random_device rd;
+mt19937 mt(rd());
+
 unordered_set<int> obterListaCandidatosAleatoria(int n)
 {
     unordered_set<int> C;
-    random_device rd;
-    mt19937 mt(rd());
 
     while(C.size() < n){
         C.insert(mt() % n);
@@ -15,20 +16,23 @@ unordered_set<int> obterListaCandidatosAleatoria(int n)
 
 int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo, int k)
 {
-    int idMelhor;
-    float custoMelhor = MAXFLOAT;
-    unordered_set<int>::iterator it;
+    multimap<float, int> melhoresCustos;
 
-    for(it = C.begin(); it != C.end(); it++)
+    for(auto it = C.begin(); it != C.end(); it++)
     {
-        if( inst.distancia[idUltimo][*(it)] < custoMelhor)
+        melhoresCustos.insert(pair<float, int>(inst.distancia[idUltimo][*it], *it));
+        if( melhoresCustos.size() > (k+1) )
         {
-            custoMelhor = inst.distancia[idUltimo][*(it)];
-            idMelhor = *it;
+            melhoresCustos.erase(melhoresCustos.end()->first);
         }
     }
-
-    return idMelhor;
+    auto it = melhoresCustos.begin();
+    if(k>0)
+    {
+        advance(it, mt() % k);
+    }
+    pair<float, int> melhorCusto = *it;
+    return melhorCusto.second;
 }
 
 vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInserido, int k)
@@ -107,8 +111,6 @@ Solucao InsercaoMaisBarata(Instancia& inst, int k)
 Solucao Randomica(Instancia& inst)
 {
     Solucao sol;
-    random_device rd;
-    mt19937 mt(rd());
 
     for(int i = 0; i < inst.n; i++)
     {

@@ -11,7 +11,6 @@
 #include "HeuristicasConstrutivas.h"
 #include "BuscasLocais.h"
 
-
 using namespace std;
 
 int main(int argc, char* argv[])
