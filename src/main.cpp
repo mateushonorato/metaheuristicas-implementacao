@@ -9,6 +9,7 @@
 #include "Avaliador.h"
 #include "Menu.h"
 #include "HeuristicasConstrutivas.h"
+#include "BuscasLocais.h"
 
 
 using namespace std;
@@ -20,7 +21,7 @@ int main(int argc, char* argv[])
     float fo; 
     string nomeArq = argv[1];
 
-    int op, hc;
+    int op, hc, bl;
     do
     {
         op = menuPrincipal();
@@ -47,25 +48,57 @@ int main(int argc, char* argv[])
                 switch (hc)
                 {                 
                     case 1:
-                        cout << "  ---- VMP --- " << endl;
+                        cout<< "  ---- VMP --- " <<endl;
                         sol = VizinhoMaisProximo(inst);
                         impSol(sol);
                         fo = avalia(inst, sol);
                         printf("\nFO: %.2f\n", fo);
                     break;
-
                     case 2:
-                        cout << "  ---- IMB --- " << endl;
+                        cout << " ---- IMB ---- " <<endl;
                         sol = InsercaoMaisBarata(inst);
                         impSol(sol);
                         fo = avalia(inst, sol);
                         printf("\nFO: %.2f\n", fo);
                     break;
-                
+                    case 3:
+                        cout << " ---- Randômico ---- " <<endl;
+                        sol = Randomica(inst);
+                        impSol(sol);
+                        fo = avalia(inst, sol);
+                        printf("\nFO: %.2f\n", fo);
+                    break;
+                    case 4:
+                        cout<< "  ---- VMP - Parcialmente Guloso --- " <<endl;
+                        sol = VizinhoMaisProximoParcialmenteGuloso(inst);
+                        impSol(sol);
+                        fo = avalia(inst, sol);
+                        printf("\nFO: %.2f\n", fo);
+                    break;
+                    case 5:
+                        cout << " ---- IMB - Parcialmente Guloso ---- " <<endl;
+                        sol = InsercaoMaisBarataParcialmenteGuloso(inst);
+                        impSol(sol);
+                        fo = avalia(inst, sol);
+                        printf("\nFO: %.2f\n", fo);
+                    break;                
                     default:
-                    cout << "Opção inválida" <<endl;
+                        cout << "Opção inválida" <<endl;
                     break;
                 }
+            break;
+            case 3:
+                bl = menuBuscaLocal();
+                switch (bl)
+                {
+                    case 1:
+                         cout<<" Busca Local Troca (BI)" <<endl;
+                    break;
+                
+                    default:
+                        cout<< "Opção Inválida" << endl;
+                    break;
+                }    
             break;
             case 0:
                 cout << "Até a próxima!!!" << endl;

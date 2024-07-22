@@ -10,4 +10,6 @@ int menuPrincipal();
 
 int menuHeuristicaConstrutiva();
 
+int menuBuscaLocal();
+
 #endif /*MENU_H*/
