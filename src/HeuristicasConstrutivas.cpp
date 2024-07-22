@@ -39,7 +39,7 @@ int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo, int k)
         }
     }
     auto it = melhoresCustos.begin();
-    if(k>0)
+    if(k > 0 && k < melhoresCustos.size())
     {
         advance(it, mt() % k);
     }
@@ -50,8 +50,9 @@ int melhorCandidato(Instancia& inst, unordered_set<int>& C, int idUltimo, int k)
 vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInserido, int k)
 {
     int id1, id2;
-    float custoMelhor = MAXFLOAT, custoAtual;
-    vector<int>::iterator it = sol.begin(), posMelhor = sol.begin();
+    float custoAtual;
+    multimap<float, vector<int>::iterator> melhoresCustos;
+    vector<int>::iterator it = sol.begin();
 
     while(it != sol.end())
     {
@@ -59,13 +60,19 @@ vector<int>::iterator melhorInsercao(Instancia& inst, Solucao& sol, int idInseri
         it++;
         id2 = (it == sol.end()) ? *(sol.begin()) : *(it);
         custoAtual = inst.distancia[id1][idInserido] + inst.distancia[idInserido][id2] - inst.distancia[id1][id2];
-        if( custoAtual < custoMelhor)
+        melhoresCustos.insert(pair<float, vector<int>::iterator>(custoAtual, it));
+        if( melhoresCustos.size() > (k+1) )
         {
-            custoMelhor = custoAtual;
-            posMelhor = it;
+            melhoresCustos.erase(melhoresCustos.end()->first);
         }
     }
-    return posMelhor;
+    auto posMelhor = melhoresCustos.begin();
+    if(k > 0 && k < melhoresCustos.size())
+    {
+        advance(posMelhor, mt() % k);
+    }
+    pair<float, vector<int>::iterator> melhorCusto = *posMelhor;
+    return melhorCusto.second;
 }
 
 Solucao VizinhoMaisProximo(Instancia& inst, int k)
