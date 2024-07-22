@@ -3,6 +3,18 @@
 random_device rd;
 mt19937 mt(rd());
 
+unordered_set<int> obterListaCandidatos(int n)
+{
+    unordered_set<int> C;
+
+    for(int i = 0; i < n; i++)
+    {
+        C.insert(i);
+    }
+
+    return C;
+}
+
 unordered_set<int> obterListaCandidatosAleatoria(int n)
 {
     unordered_set<int> C;

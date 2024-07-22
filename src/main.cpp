@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     string nomeArq = argv[1];
     leInstancia(inst, nomeArq);
 
-    int op, hc, bl;
+    int op, hc, bl, k;
     do
     {
         op = menuPrincipal();
@@ -54,18 +54,22 @@ int main(int argc, char* argv[])
                         printf("\nFO: %.2f\n", fo);
                     break;
                     case 4:
-                        /*cout<< "  ---- VMP - Parcialmente Guloso --- " <<endl;
-                        sol = VizinhoMaisProximoParcialmenteGuloso(inst);
+                        cout << "  ---- VMP - Parcialmente Guloso --- " << endl;
+                        cout << "Insira o fator k: ";
+                        cin >> k;
+                        sol = VizinhoMaisProximo(inst, k);
                         impSol(sol);
                         fo = avalia(inst, sol);
-                        printf("\nFO: %.2f\n", fo);*/
+                        printf("\nFO: %.2f\n", fo);
                     break;
                     case 5:
-                        /*cout << " ---- IMB - Parcialmente Guloso ---- " <<endl;
-                        sol = InsercaoMaisBarataParcialmenteGuloso(inst);
+                        cout << " ---- IMB - Parcialmente Guloso ---- " << endl;
+                        cout << "Insira o fator k: ";
+                        cin >> k;
+                        sol = InsercaoMaisBarata(inst, k);
                         impSol(sol);
                         fo = avalia(inst, sol);
-                        printf("\nFO: %.2f\n", fo);*/
+                        printf("\nFO: %.2f\n", fo);
                     break;                
                     default:
                         cout << "Opção inválida" <<endl;
