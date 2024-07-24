@@ -18,10 +18,10 @@ int menuPrincipal()
     printf("3 - Metaheurísticas.\n");
     printf("0 - Sair\n");
     do
-    {   
+    {
         printf("Digite a opção escolhida: ");
         cin >> op;
-    }while( (op < 0) || (op > 3) );
+    } while ((op < 0) || (op > 3));
     return op;
 }
 
@@ -40,12 +40,10 @@ int menuHeuristicaConstrutiva()
     do
     {
         printf("Digite a opção escolhida: ");
-        cin >> hc; 
-    } while ( (hc < 1) || (hc > 7) );
+        cin >> hc;
+    } while ((hc < 1) || (hc > 7));
 
     return hc;
-    
-    
 }
 
 int menuBuscaLocal()
@@ -57,19 +55,16 @@ int menuBuscaLocal()
     printf("2 - Descida Troca (BI - O(1)).\n");
     printf("3 - Descida Troca (FI).\n");
     printf("4 - Descida Realocação (BI).\n");
-    printf("5 - Descida Realocação (FI).\n"); 
-    printf("6 - Descida Randômica");   
+    printf("5 - Descida Realocação (FI).\n");
+    printf("6 - Descida Randômica");
     do
     {
         printf("Digite a opção escolhida: ");
-        cin >> bl; 
-    } while ( (bl < 1) || (bl > 6) );
+        cin >> bl;
+    } while ((bl < 1) || (bl > 6));
 
     return bl;
-    
-    
 }
-
 
 int menuMetaheuristicas()
 {
@@ -82,10 +77,8 @@ int menuMetaheuristicas()
     do
     {
         printf("Digite a opção escolhida: ");
-        cin >> mh; 
-    } while ( (mh < 1) || (mh > 3) );
+        cin >> mh;
+    } while ((mh < 1) || (mh > 3));
 
     return mh;
-    
-    
 }

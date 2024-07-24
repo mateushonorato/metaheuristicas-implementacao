@@ -1,10 +1,10 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <stdio.h>
 #include <iostream>
+#include <stdio.h>
 
-using namespace std; 
+using namespace std;
 
 int menuPrincipal();
 int menuHeuristicaConstrutiva();

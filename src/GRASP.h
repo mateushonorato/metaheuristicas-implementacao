@@ -2,12 +2,11 @@
 #define GRASP_H
 
 #include <float.h>
-
-#include "Instancia.h"
-#include "HeuristicasConstrutivas.h"
-#include "Solucao.h"
 #include "BuscasLocais.h"
+#include "HeuristicasConstrutivas.h"
+#include "Instancia.h"
+#include "Solucao.h"
 
-Solucao GRASP(Instancia& inst,int GRASPMax, float alpha);
+Solucao GRASP(Instancia &inst, int GRASPMax, float alpha);
 
 #endif

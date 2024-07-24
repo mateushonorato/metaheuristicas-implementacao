@@ -1,21 +1,20 @@
 #ifndef HEURISTICASCONSTRUTIVAS_H
 #define HEURISTICASCONSTRUTIVAS_H
 
+#include <algorithm>
+#include <iostream>
 #include <map>
+#include <random>
 #include <set>
 #include <unordered_set>
 #include <vector>
-#include <iostream>
-#include <algorithm>
-#include <random>
-
 #include "Instancia.h"
 #include "Solucao.h"
 
 using namespace std;
 
-Solucao VizinhoMaisProximo(Instancia& inst, int k);
-Solucao InsercaoMaisBarata(Instancia& inst, int k);
-Solucao Randomica(Instancia& inst);
+Solucao InsercaoMaisBarata(Instancia &inst, int k);
+Solucao Randomica(Instancia &inst);
+Solucao VizinhoMaisProximo(Instancia &inst, int k);
 
 #endif /*HEURISTICASCONSTRUTIVAS_H*/
