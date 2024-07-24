@@ -1,19 +1,22 @@
-
 #include "GRASP.h"
 
-Solucao GRASP(Instancia &inst, int GraspMax, float alpha)
+Solucao GRASP(Instancia& inst,int GRASPMax, float alpha)
 {
-    float melhorFO = MAXFLOAT, fo;
+    float melhorFO = FLT_MAX,fo;
     Solucao melhorSol;
 
-    for(int inter = 0; inter < GraspMax; inter++)
+    for(int iter = 0; iter < GRASPMax;iter++)
     {
-        // constroi solucao
-        Solucao sol; // VMP_GRASP
-        // aplica busca local
-        sol = DescidaTrocaBIO1(inst, sol);
-        fo = avalia(inst, sol);
+        //constroi
+        Solucao sol = VMP_GRASP(inst,alpha);
+        //aplica busca local
+        sol = DescidaTrocaBIO1(inst,sol);
+        fo = avalia(inst,sol);
+        if(fo < melhorFO)
+        {
+            melhorFO = fo;
+            melhorSol = sol;
+        }       
     }
-
     return melhorSol;
 }
