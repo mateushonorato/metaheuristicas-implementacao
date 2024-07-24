@@ -51,15 +51,16 @@ int menuBuscaLocal()
     printf("---- Buscas Locais ---\n");
     printf("Selecione uma opção:\n");
     printf("1 - Descida Troca (BI).\n");
-    printf("2 - Descida Troca (FI).\n");
-    printf("3 - Descida Realocação (BI).\n");
-    printf("4 - Descida Realocação (FI).\n"); 
-    printf("5 - Descida Randômica");   
+    printf("2 - Descida Troca (BI - O(1)).\n");
+    printf("3 - Descida Troca (FI).\n");
+    printf("4 - Descida Realocação (BI).\n");
+    printf("5 - Descida Realocação (FI).\n"); 
+    printf("6 - Descida Randômica");   
     do
     {
         printf("Digite a opção escolhida: ");
         cin >> bl; 
-    } while ( (bl < 1) || (bl > 5) );
+    } while ( (bl < 1) || (bl > 6) );
 
     return bl;
     

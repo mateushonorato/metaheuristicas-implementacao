@@ -83,7 +83,18 @@ int main(int argc, char* argv[])
                 switch (bl)
                 {
                     case 1:
-                         cout<<" Busca Local Troca (BI)" <<endl;
+                         cout<<" ### Busca Local Troca (BI) ### " <<endl;
+                         sol = DescidaTrocaBI(inst, sol);
+                         impSol(sol);
+                         fo = avalia(inst, sol);
+                         printf("\nFO: %.2f\n", fo);
+                    break;
+                    case 2:
+                         cout<<" ### Busca Local Troca (BI - O(1)) ### " <<endl;
+                         sol = DescidaTrocaBIO1(inst, sol);
+                         impSol(sol);
+                         fo = avalia(inst, sol);
+                         printf("\nFO: %.2f\n", fo);
                     break;
                 
                     default:
