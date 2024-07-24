@@ -15,6 +15,7 @@ int menuPrincipal()
     printf("Selecione uma opção: \n");
     printf("1 - Heurísticas Construtivas.\n");
     printf("2 - Buscas Locais.\n");
+    printf("3 - Metaheurísticas.\n");
     printf("0 - Sair\n");
     do
     {   
@@ -34,11 +35,13 @@ int menuHeuristicaConstrutiva()
     printf("3 - Randômico.\n");
     printf("4 - Vizinho Mais Próximo Parcialmente Guloso.\n");
     printf("5 - Inserção Mais Barata Parcialmente Guloso.\n");
+    printf("6 - Vizinho Mais Próximo GRASP.\n");
+    printf("7 - Inserção Mais Barata GRASP.\n");
     do
     {
         printf("Digite a opção escolhida: ");
         cin >> hc; 
-    } while ( (hc < 1) || (hc > 5) );
+    } while ( (hc < 1) || (hc > 7) );
 
     return hc;
     
@@ -63,6 +66,26 @@ int menuBuscaLocal()
     } while ( (bl < 1) || (bl > 6) );
 
     return bl;
+    
+    
+}
+
+
+int menuMetaheuristicas()
+{
+    int mh;
+    printf("---- Metaheurísticas ---\n");
+    printf("Selecione uma opção:\n");
+    printf("1 - Multi-start.\n");
+    printf("2 - GRASP.\n");
+    printf("3 - Simulated Annealing.\n");
+    do
+    {
+        printf("Digite a opção escolhida: ");
+        cin >> mh; 
+    } while ( (mh < 1) || (mh > 3) );
+
+    return mh;
     
     
 }
