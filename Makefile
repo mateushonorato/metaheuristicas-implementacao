@@ -32,3 +32,8 @@ $(TEMP_DIR)/%.o: $(SRC_DIR)/%.cpp
 .PHONY: clean
 clean:
 	rm -f $(TEMP_DIR)/*.o $(TARGET)
+
+all:
+	mkdir -p $(BIN_DIR)
+	mkdir -p $(TEMP_DIR)
+	make $(TARGET)	
