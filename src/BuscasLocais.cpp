@@ -137,7 +137,7 @@ Solucao DescidaTrocaBI(Instancia &inst, Solucao &sol)
         atualFO = avalia(inst, atualSol);
         if (atualFO < melhorFO)
         {
-            cout << "Melhora BI-Troca -  FO: " << atualFO << endl;
+            // cout << "Melhora BI-Troca -  FO: " << atualFO << endl;
             melhorSol = atualSol;
             melhorFO = atualFO;
             melhorou = true;
@@ -164,7 +164,7 @@ Solucao DescidaTrocaBIO1(Instancia &inst, Solucao &sol)
         atualFO = avalia(inst, atualSol);
         if (atualFO < melhorFO)
         {
-            cout << "Melhora BI-Troca (O1) -  FO: " << atualFO << endl;
+            // cout << "Melhora BI-Troca (O1) -  FO: " << atualFO << endl;
             melhorSol = atualSol;
             melhorFO = atualFO;
             melhorou = true;
