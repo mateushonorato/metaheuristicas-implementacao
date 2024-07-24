@@ -3,9 +3,9 @@
 random_device rd;
 mt19937 mt(rd());
 
-unordered_set<int> obterListaCandidatos(int n)
+set<int> obterListaCandidatos(int n)
 {
-    unordered_set<int> C;
+    set<int> C;
 
     for (int i = 0; i < n; i++)
     {
@@ -15,19 +15,7 @@ unordered_set<int> obterListaCandidatos(int n)
     return C;
 }
 
-unordered_set<int> obterListaCandidatosAleatoria(long unsigned int n)
-{
-    unordered_set<int> C;
-
-    while (C.size() < n)
-    {
-        C.insert(mt() % n);
-    }
-
-    return C;
-}
-
-int melhorCandidato(Instancia &inst, unordered_set<int> &C, int idUltimo, long unsigned int k)
+int melhorCandidato(Instancia &inst, set<int> &C, int idUltimo, long unsigned int k)
 {
     multimap<float, int> melhoresCustos;
 
@@ -81,7 +69,7 @@ Solucao VizinhoMaisProximo(Instancia &inst, int k)
     Solucao sol;
 
     // criando e inicializando minha lista de candidatos
-    unordered_set<int> C = obterListaCandidatos(inst.n);
+    set<int> C = obterListaCandidatos(inst.n);
 
     // adicionando a cidade origem do Caixeiro
     sol.push_back(*(C.begin()));
@@ -105,7 +93,7 @@ Solucao InsercaoMaisBarata(Instancia &inst, int k)
     int idInserir;
 
     // criando e inicializando minha lista de candidatos
-    unordered_set<int> C = obterListaCandidatos(inst.n);
+    set<int> C = obterListaCandidatos(inst.n);
 
     // adicionando a cidade origem do Caixeiro
     sol.push_back(*(C.begin()));
