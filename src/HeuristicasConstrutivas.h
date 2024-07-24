@@ -16,5 +16,6 @@ using namespace std;
 Solucao InsercaoMaisBarata(Instancia &inst, int k);
 Solucao Randomica(Instancia &inst);
 Solucao VizinhoMaisProximo(Instancia &inst, int k);
+Solucao VMP_GRASP(Instancia &inst, float alpha);
 
 #endif

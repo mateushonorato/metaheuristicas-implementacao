@@ -129,3 +129,51 @@ Solucao Randomica(Instancia &inst)
 
     return sol;
 }
+
+int melhorCandidatoGRASP(Instancia &inst, set<int> &C, int idUltimo, float alpha)
+{
+    multimap<float, int> melhoresCustos;
+
+    for (auto it = C.begin(); it != C.end(); it++)
+    {
+        melhoresCustos.insert(pair<float, int>(inst.distancia[idUltimo][*it], *it));
+    }
+
+    float gmax, gmin, limitante;
+    auto it = melhoresCustos.begin();
+    gmin = it->first;
+    it = --melhoresCustos.end();
+    gmax = it->first;
+    limitante = gmin + alpha * (gmax - gmin);
+    it = --melhoresCustos.upper_bound(limitante);
+    int k = distance(melhoresCustos.begin(), it);
+    // cout << "gmax=" << gmax << "    gmin=" << gmin << "    limitante=" << limitante << "    k=" << k << endl;
+    it = melhoresCustos.begin();
+    if (k > 0)
+    {
+        advance(it, mt() % k);
+    }
+    return it->second;
+}
+
+Solucao VMP_GRASP(Instancia &inst, float alpha)
+{
+    Solucao sol;
+
+    // criando e inicializando minha lista de candidatos
+    set<int> C = obterListaCandidatos(inst.n);
+
+    // adicionando a cidade origem do Caixeiro
+    sol.push_back(*(C.begin()));
+    C.erase(C.begin());
+
+    // seleciona e insere o vizinho mais próximo até que a lista de candidatos termine
+    while (!C.empty())
+    {
+        int id = melhorCandidatoGRASP(inst, C, sol.at(sol.size() - 1), alpha);
+        sol.push_back(id);
+        C.erase(id);
+    }
+
+    return sol;
+}
