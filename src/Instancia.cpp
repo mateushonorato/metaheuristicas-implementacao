@@ -38,11 +38,14 @@ void leInstancia(Instancia &inst, string nomeArq)
         // calculando a matriz
         calculaDistancias(inst);
 
-        cout << "Instância " << nomeArq << " carregada com sucesso." << endl
+        cout << endl
+             << "Instância " << nomeArq << " carregada com sucesso." << endl
              << endl;
     }
     else
     {
-        cerr << "Erro ao abrir o arquivo!" << endl;
+        cerr << endl
+             << "Erro ao abrir o arquivo " << nomeArq << endl
+             << endl;
     }
 }
