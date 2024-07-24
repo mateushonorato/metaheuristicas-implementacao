@@ -15,7 +15,7 @@ unordered_set<int> obterListaCandidatos(int n)
     return C;
 }
 
-unordered_set<int> obterListaCandidatosAleatoria(int n)
+unordered_set<int> obterListaCandidatosAleatoria(long unsigned int n)
 {
     unordered_set<int> C;
 
@@ -27,7 +27,7 @@ unordered_set<int> obterListaCandidatosAleatoria(int n)
     return C;
 }
 
-int melhorCandidato(Instancia &inst, unordered_set<int> &C, int idUltimo, int k)
+int melhorCandidato(Instancia &inst, unordered_set<int> &C, int idUltimo, long unsigned int k)
 {
     multimap<float, int> melhoresCustos;
 
@@ -48,7 +48,7 @@ int melhorCandidato(Instancia &inst, unordered_set<int> &C, int idUltimo, int k)
     return melhorCusto.second;
 }
 
-vector<int>::iterator melhorInsercao(Instancia &inst, Solucao &sol, int idInserido, int k)
+vector<int>::iterator melhorInsercao(Instancia &inst, Solucao &sol, int idInserido, long unsigned int k)
 {
     int id1, id2;
     float custoAtual;

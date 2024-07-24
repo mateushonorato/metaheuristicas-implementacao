@@ -11,4 +11,4 @@ int menuHeuristicaConstrutiva();
 int menuBuscaLocal();
 int menuMetaheuristicas();
 
-#endif /*MENU_H*/
+#endif

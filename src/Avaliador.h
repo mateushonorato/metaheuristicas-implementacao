@@ -8,4 +8,4 @@ using namespace std;
 
 float avalia(Instancia &inst, Solucao &sol);
 
-#endif /*AVALIADOR_H*/
+#endif

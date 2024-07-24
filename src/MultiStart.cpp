@@ -3,9 +3,9 @@
 Solucao MultiStart(Instancia &inst, int iterMax)
 {
     // faça iterMax iterações sem melhora
-    //  construo uma solução
-    //  faça uma busca local
-    //  se é melhor que a melhor solução atual, atualizo, senão repito
+    // construo uma solução
+    // faça uma busca local
+    // se é melhor que a melhor solução atual, atualizo, senão repito
     int iter = 1;
     Solucao melhorSol;
     float melhorFO = FLT_MAX, fo;

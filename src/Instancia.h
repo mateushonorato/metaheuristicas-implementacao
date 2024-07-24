@@ -26,4 +26,4 @@ typedef struct sInstancia
 void calculaDistancias(Instancia &inst);
 void leInstancia(Instancia &inst, string nome_arq);
 
-#endif /*INSTANCIA_H*/
+#endif
