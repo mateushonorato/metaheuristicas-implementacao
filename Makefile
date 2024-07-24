@@ -16,7 +16,7 @@ SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJ_FILES := $(SRC_FILES:$(SRC_DIR)/%.cpp=$(TEMP_DIR)/%.o)
 
 # Define the compiler flags
-CXXFLAGS := -Wall -std=c++17
+CXXFLAGS := -Wall -std=c++17 -O3
 
 # Rule to build the target
 $(TARGET): $(OBJ_FILES)
